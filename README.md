@@ -17,7 +17,6 @@ samples, guidance on mobile development, and a full API reference.
 
 
 This app, using api from :
-
 https://farizdotid.com/dokumentasi-api-daerah-indonesia/
 
 Preview this app:
