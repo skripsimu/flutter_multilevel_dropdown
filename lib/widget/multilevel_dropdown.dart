@@ -157,14 +157,11 @@ class _MultiDropdownState extends State<MultiDropdown> {
                     _kabupatenSelection = newVal;
                     kabupatenNama = newVal.substring(4, lengthString);
                     if (kabupatenID == id) {
-                      print("AAAAAAAAAAA");
-                      print(kecamatanNama.length);
                       _kecamatanSelection = _kecamatanSelection;
                       checkValue();
                     } else {
                       _kecamatanSelection = null;
                       kecamatanNama = "";
-                      print(kecamatanNama.length);
                       checkValue();
                     }
                     kabupatenID = id;
