@@ -3,7 +3,7 @@ import 'package:toast/toast.dart';
 
 void showToast(BuildContext context, String msg, {int duration, int gravity}) {
   Toast.show(msg, context,
-      duration: duration, gravity: gravity, backgroundRadius: 20.0);
+      duration: duration, gravity: gravity, backgroundRadius: 20.0, backgroundColor: Colors.pink[400]);
 }
 
 getDialog(BuildContext context, String source, {String source2, source3}) {
