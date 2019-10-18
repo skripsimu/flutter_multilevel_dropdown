@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:flutter_multilevel_dropdown/widget/widget.dart';
+import 'package:flutter_multilevel_dropdown/widget/widget_lib.dart';
 import 'dart:async';
 import 'package:toast/toast.dart';
 import 'package:flutter_multilevel_dropdown/controller/controller_kecamatan.dart';
