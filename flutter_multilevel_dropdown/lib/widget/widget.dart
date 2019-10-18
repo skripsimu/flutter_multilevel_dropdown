@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:toast/toast.dart';
+
+void showToast(BuildContext context, String msg, {int duration, int gravity}) {
+  Toast.show(msg, context,
+      duration: duration, gravity: gravity, backgroundRadius: 20.0);
+}
 
 getDialog(BuildContext context, String source, {String source2, source3}) {
   showDialog(
@@ -27,7 +33,11 @@ getDialog(BuildContext context, String source, {String source2, source3}) {
                 Column(
                   children: <Widget>[
                     Text(
-                      source.substring(1, source.length) + ", " + source2 + "\n" + source3,
+                      source.substring(1, source.length) +
+                          ", " +
+                          source2 +
+                          "\n" +
+                          source3,
                       style:
                           TextStyle(fontSize: 13, fontWeight: FontWeight.w300),
                     ),
