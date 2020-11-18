@@ -1,20 +1,41 @@
 class ModelProvinsi {
-  bool error;
-  String message;
-  List province;
+  List<Provinsi> provinsi;
 
-  ModelProvinsi(this.error, this.message, this.province);
+  ModelProvinsi({this.provinsi});
 
-  factory ModelProvinsi.fromJson(Map<String, dynamic> json) {
-    final model = ModelProvinsi(
-      json['error'],
-      json['message'],
-      json['semuaprovinsi'],
-    );
+  ModelProvinsi.fromJson(Map<String, dynamic> json) {
+    if (json['provinsi'] != null) {
+      provinsi = new List<Provinsi>();
+      json['provinsi'].forEach((v) {
+        provinsi.add(new Provinsi.fromJson(v));
+      });
+    }
+  }
 
-    return model;
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.provinsi != null) {
+      data['provinsi'] = this.provinsi.map((v) => v.toJson()).toList();
+    }
+    return data;
   }
 }
 
+class Provinsi {
+  int id;
+  String nama;
 
+  Provinsi({this.id, this.nama});
 
+  Provinsi.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    nama = json['nama'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['nama'] = this.nama;
+    return data;
+  }
+}

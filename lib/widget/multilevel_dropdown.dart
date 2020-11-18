@@ -27,9 +27,9 @@ class _MultiDropdownState extends State<MultiDropdown> {
   String kabupatenNama = "";
   String kecamatanNama = "";
 
-  List dataProvinsi = [];
-  List dataKabupaten = [];
-  List dataKecamatan = [];
+  List<Provinsi> dataProvinsi = [];
+  List<KotaKabupaten> dataKabupaten = [];
+  List<Kecamatan> dataKecamatan = [];
 
   bool enableButton = false;
 
@@ -37,7 +37,7 @@ class _MultiDropdownState extends State<MultiDropdown> {
     getJson().then((provinsi) {
       setState(() {
         provinsiModel = provinsi;
-        dataProvinsi = provinsiModel.province;
+        dataProvinsi = provinsiModel.provinsi;
       });
     });
   }
@@ -46,7 +46,10 @@ class _MultiDropdownState extends State<MultiDropdown> {
     getJsonCity(provinsiID).then((kabupaten) {
       setState(() {
         kabupatenModel = kabupaten;
-        dataKabupaten = kabupatenModel.kabupaten;
+        dataKabupaten = kabupatenModel.kotaKabupaten;
+        dataKabupaten.forEach((element) {
+          print(element.nama);
+        });
       });
     });
   }
@@ -83,7 +86,7 @@ class _MultiDropdownState extends State<MultiDropdown> {
         backgroundColor: Colors.pink[400],
         title: Text("Wilayah Indonesia"),
       ),
-      body: Center(
+      body: dataProvinsi.length > 0 ? Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -100,8 +103,8 @@ class _MultiDropdownState extends State<MultiDropdown> {
                 hint: Text("Select Provinsi"),
                 items: dataProvinsi.map((item) {
                   return new DropdownMenuItem(
-                    child: new Text(item['nama']),
-                    value: item['id'] + item['nama'],
+                    child: new Text(item.nama),
+                    value: item.id.toString() + item.nama,
                   );
                 }).toList(),
                 onChanged: (newVal) {
@@ -145,8 +148,8 @@ class _MultiDropdownState extends State<MultiDropdown> {
                 hint: Text("Select Kota/Kabupaten"),
                 items: dataKabupaten.map((item) {
                   return new DropdownMenuItem(
-                    child: new Text(item['nama']),
-                    value: item['id'] + item['nama'],
+                    child: new Text(item.nama),
+                    value: item.id.toString() + item.nama,
                   );
                 }).toList(),
                 onChanged: (newVal) {
@@ -185,8 +188,8 @@ class _MultiDropdownState extends State<MultiDropdown> {
                 hint: Text("Select Kecamatan"),
                 items: dataKecamatan.map((item) {
                   return new DropdownMenuItem(
-                    child: new Text(item['nama']),
-                    value: item['id'] + item['nama'],
+                    child: new Text(item.nama),
+                    value: item.id.toString() + item.nama,
                   );
                 }).toList(),
                 onChanged: (newVal) {
@@ -224,7 +227,7 @@ class _MultiDropdownState extends State<MultiDropdown> {
             ),
           ],
         ),
-      ),
+      ) : Center(child: CircularProgressIndicator()),
     );
   }
 }

@@ -5,7 +5,8 @@ import '../model/model_kabupaten.dart';
 
 // ignore: missing_return
 Future<ModelKabupaten> getJsonCity(provinsiID) async {
-  final response = await http.get(Urls.kabupatenUrl + provinsiID + "/kabupaten");
+  print(Urls.kabupatenUrl + provinsiID);
+  final response = await http.get(Urls.kabupatenUrl + provinsiID);
   var responseDecode = json.decode(response.body);
 
   return ModelKabupaten.fromJson(responseDecode);

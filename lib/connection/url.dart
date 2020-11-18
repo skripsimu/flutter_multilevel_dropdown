@@ -2,7 +2,7 @@ class Urls {
   static String provinsiUrl =
       "http://dev.farizdotid.com/api/daerahindonesia/provinsi";
   static String kabupatenUrl =
-      "http://dev.farizdotid.com/api/daerahindonesia/provinsi/";
+      "https://dev.farizdotid.com/api/daerahindonesia/kota/?id_provinsi=";
   static String kecamatanUrl =
-      "http://dev.farizdotid.com/api/daerahindonesia/provinsi/kabupaten/";
+      "https://dev.farizdotid.com/api/daerahindonesia/kecamatan?id_kota=";
 }

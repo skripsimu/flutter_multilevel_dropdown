@@ -5,7 +5,7 @@ import '../model/model_kecamatan.dart';
 
 // ignore: missing_return
 Future<ModelKecamatan> getJsonKecamatan(kabupatenID) async {
-  final response = await http.get(Urls.kecamatanUrl + kabupatenID + "/kecamatan");
+  final response = await http.get(Urls.kecamatanUrl + kabupatenID);
   var responseDecode = json.decode(response.body);
   return ModelKecamatan.fromJson(responseDecode);
 }
