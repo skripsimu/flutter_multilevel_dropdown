@@ -33,7 +33,7 @@ getDialog(BuildContext context, String source, {String source2, source3}) {
                 Column(
                   children: <Widget>[
                     Text(
-                      source.substring(1, source.length) +
+                      source.substring(0, source.length) +
                           ", " +
                           source2 +
                           "\n" +
